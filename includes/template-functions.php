@@ -200,7 +200,11 @@ function get_ps_gallery_template($template, $classes, $attachment_ids, $id){
             mobileSrc:true,
             caption:true,
 			captionLink:true,
-            dynamicEl: <?php echo json_encode($gallery);?>
+            dynamicEl: <?php echo json_encode($gallery);?>,
+            onSlideAfter: function() {
+	            var $imgurl =  'test';
+               $('input[name="image"]').val($imgurl); 
+            },
         });	
     }) 
   });

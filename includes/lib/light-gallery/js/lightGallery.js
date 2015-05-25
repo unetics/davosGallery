@@ -140,7 +140,7 @@
                 }, 50);
             },
             structure: function () {
-                $('body').append('<div id="lg-outer" class="' + settings.addClass + '"><div id="lg-gallery"><div id="lg-slider"></div><a id="lg-close" class="close"></a></div></div>').addClass('light-gallery');
+                $('body').append('<div id="lg-outer" class="' + settings.addClass + '"><div id="lg-gallery"><div id="lg-slider"></div><a id="lg-close" class="close"><span class="icon-close"></span></a></div></div>').addClass('light-gallery');
                 $galleryCont = $('#lg-outer');
                 $gallery = $('#lg-gallery');
                 if (settings.showAfterLoad === true) {
@@ -433,11 +433,11 @@
                     var $this = this,
                         $close = '';
                     if (!settings.showThumbByDefault) {
-                        $close = '<span class="close ib"><i class="bUi-iCn-rMv-16" aria-hidden="true"></i></span>';
+                        $close = '<span class="close ib"><span class="icon-close"></span></span>';
                     }
                     $gallery.append('<div class="thumb-cont"><div class="thumb-info">' + $close + '</div><div class="thumb-inner"></div></div>');
                     $thumb_cont = $gallery.find('.thumb-cont');
-                    $prev.after('<a class="cl-thumb"></a>');
+                    $prev.after('<a class="cl-thumb"><span class="icon-ellipsis-h"></span></a>');
                     $prev.parent().addClass('has-thumb');
                     $gallery.find('.cl-thumb').bind('click touchend', function () {
                         $gallery.addClass('open');
@@ -531,7 +531,7 @@
             slideTo: function () {
                 var $this = this;
                 if (settings.controls === true && $children.length > 1) {
-                    $gallery.append('<div id="lg-action"><a id="lg-prev"></a><a id="lg-next"></a></div>');
+                    $gallery.append('<div id="lg-action"><a id="lg-prev"><span class="icon-chevron-left"></span></a><a id="lg-next"><span class="icon-chevron-right"></span></a></div>');
                     $prev = $gallery.find('#lg-prev');
                     $next = $gallery.find('#lg-next');
                     $prev.bind('click', function () {
@@ -547,7 +547,7 @@
             Order: function () {
                 var $this = this;
                 if (settings.controls === true && $children.length > 1) {
-	                $prev.after('<a class="cl-order">or</a>');
+	                $prev.after('<a class="cl-order"><span class="icon-info"></span></a>');
 	                var orderform = $('.order-html').html();
 	                $gallery.append(orderform);
                 }

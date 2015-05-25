@@ -135,7 +135,7 @@ function easy_image_gallery($id, $template ='default') {
 
 		$classes = implode( ' ', $classes );
 
-		$gallery = get_ps_gallery_template($template, $classes, $attachment_ids);
+		$gallery = get_ps_gallery_template($template, $classes, $attachment_ids, $id);
 
 		return apply_filters( 'easy_image_gallery', $gallery );
 	}
@@ -143,12 +143,9 @@ function easy_image_gallery($id, $template ='default') {
 
 
 
-function get_ps_gallery_template($template, $classes, $attachment_ids){
+function get_ps_gallery_template($template, $classes, $attachment_ids, $id){
 	ob_start();
 	?>
-	<div>
-	<h1><?= $template?></h1>
-    
     <?php
 	    $i = 0;
 	    $gallery = array();
@@ -174,61 +171,32 @@ function get_ps_gallery_template($template, $classes, $attachment_ids){
 			$gallery[$i]['mobileSrc'] = $mobile;
 			$i ++;
 			
-			?>
-			<div style="display:none;" class="dynamicHtml<?=$attachment_id?>">
-				<div class="custom-html">
+			} ?>
+		
+		<div style="display:none;" class="dynamicHtml<?=$attachment_id?>">
+			<div class="custom-html">
 				<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
-				<p><?=$attachment_id?>Maecenas et libero varius, hendrerit metus sit amet, hendrerit odio. Sed ornare mauris sit amet neque dignissim, vel condimentum est consectetur. <a href="#">try this</a></p>    			</div>
+				<p><?=$attachment_id?><a href="#">try this</a></p>
 			</div>
-			<div style="display:none;" class="orderForm">
-				<div class="order-html">
-<div class="order-cont"><div class="thumb-info">
-	<p>
-	All these images are for sale, in various formats.<br/>
-To enquire about this image,enter your email address here.</p>
-<a href="" class="orderClose">close</a>
-<div id="respond">
-  <form action="<?php the_permalink(); ?>" method="post">
-    <p><input type="text" name="message_name" value=""></p>
-    <p><input type="text" name="message_email" value=""></p>
-    <p><<textarea type="text" name="message_text"></textarea></p>
-    <p><label for="message_human">Human Verification: <span>*</span> <br><input type="text" style="width: 60px;" name="message_human"> + 3 = 5</label></p>
-    <input type="hidden" name="submitted" value="1">
-    <p><input type="submit"></p>
-  </form>
-</div>
-</div></div>  			
-				</div>
-			</div>
+		</div>
+		
+	<?php $fimage = wp_get_attachment_image_src($attachment_ids[0], 'small' );?>
 
-			
-			
-		<?php }
-			if (!empty($_POST)){
-				echo '<pre>';
-					print_r($_POST);
-				echo '</pre>';
-			
-				$sent = wp_mail('mitchell.bray@gmail.com', 'images', 'donkey');
-				if($sent){
-					echo("success"); 
-					}//message sent!
-				else{
-					 echo("not success");
-					 } //message wasn't sent
-		};
-
-?>
-	</div>
+		
+	<figure class="gall">
+		<img src="<?= $fimage[0];?>"/>
+		<figcaption>
+			<h2><?= get_the_title($id);?></h2>
+			<a href="javascript:void(0)" id="gallery_<?=$id?>" >view gallery</a>
+		</figcaption>
+	</figure>
 	
-	
-	<a id="dynamic" class="btn btn-primary" href="javascript:void(0)" style="margin-bottom: 40px;">Load LightGallery</a>
 	<script type="text/javascript">
   $(document).ready(function() {
-    $('#dynamic').click(function(e){
+    $('#gallery_<?=$id?>').click(function(e){
         $(this).lightGallery({
             dynamic:true,
-            html:true,
+//             html:true,
             mobileSrc:true,
             caption:true,
 			captionLink:true,

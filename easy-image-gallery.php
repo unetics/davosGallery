@@ -4,7 +4,7 @@
  *	Plugin Name: Davos Image Gallery
  *	Plugin URI: http://pressedsites.com/
  *	Description: An easy to use image gallery with drag & drop re-ordering.
- *	Version: 1.3.4.1
+ *	Version: 1.3.4.2
  *	Author: Mitchell Bray
  *	Author URI: http://webcreationcentre.com.au/
  *	GitHub Plugin URI:	unetics/davosGallery

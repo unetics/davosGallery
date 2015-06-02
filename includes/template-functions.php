@@ -173,12 +173,14 @@ function get_ps_gallery_template($template, $classes, $attachment_ids, $id){
 			
 			} ?>
 		
+<!--
 		<div style="display:none;" class="dynamicHtml<?=$attachment_id?>">
 			<div class="custom-html">
 				<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
 				<p><?=$attachment_id?><a href="#">try this</a></p>
 			</div>
 		</div>
+-->
 		
 	<?php $fimage = wp_get_attachment_image_src($attachment_ids[0], 'small' );?>
 
@@ -205,8 +207,8 @@ function get_ps_gallery_template($template, $classes, $attachment_ids, $id){
 	            var $imgurl =  $('.lg-slide.loaded.complete.current img').prop('src');
                $('input[name="image"]').val($imgurl); 
             },
-            onOpen: function() {
-	            var $imgurl =  $('.lg-slide.loaded.complete.current img').prop('src');
+			orderOpen: function() {
+               var $imgurl =  $('.lg-slide.loaded.complete.current img').prop('src');
                $('input[name="image"]').val($imgurl); 
             },
 

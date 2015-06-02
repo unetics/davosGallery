@@ -695,6 +695,7 @@ left: 0;
   width: 40%;
   float: left;
   padding: 5px;
+   color: black;
 }
 .info-inner .right input[type=submit]:hover{
   border: solid 2px #989898;

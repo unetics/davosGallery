@@ -5,25 +5,25 @@
 function gallery_post_type() {
 
 	$labels = array(
-		'name'                => 'Gallerys',
+		'name'                => 'Galleries',
 		'singular_name'       => 'Gallery',
-		'menu_name'           => 'Gallerys',
-		'name_admin_bar'      => 'Gallerys',
-		'parent_item_colon'   => 'Gallerys',
-		'all_items'           => 'All Gallerys',
+		'menu_name'           => 'Galleries',
+		'name_admin_bar'      => 'Galleries',
+		'parent_item_colon'   => 'Galleries',
+		'all_items'           => 'All Galleries',
 		'add_new_item'        => 'Add New Gallery',
 		'add_new'             => 'Add Gallery',
 		'new_item'            => 'New Gallery',
 		'edit_item'           => 'Edit Gallery',
 		'update_item'         => 'Update Gallery',
 		'view_item'           => 'View Gallery',
-		'search_items'        => 'Search Gallerys',
+		'search_items'        => 'Search Galleries',
 		'not_found'           => 'Not found',
 		'not_found_in_trash'  => 'Not found in Trash',
 	);
 	$args = array(
 		'label'               => 'ps_gallery',
-		'description'         => 'Gallerys',
+		'description'         => 'Galleries',
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'thumbnail', ),
 		'hierarchical'        => false,
